@@ -16,6 +16,10 @@ const appRoutes:Routes=[
   {
     path:'dashboard',
     component:DashboardComponent
+  },
+  {
+    path:'list',
+    component:ListComponent
   }
   ]
 @NgModule({
