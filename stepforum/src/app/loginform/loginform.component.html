@@ -1,6 +1,6 @@
 <div class="login-page">
   <div class="form">
-    <form class="login-form">
+    <form class="login-form" (submit)="loginuser($event)">
       <input type="text" placeholder="username"/>
       <input type="password" placeholder="password"/>
       <b><input type="submit" value="Login"></b>
