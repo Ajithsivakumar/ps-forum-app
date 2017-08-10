@@ -1,7 +1,35 @@
-
-   
-      <input [(ngModel)]="author" type="text" class="input1" placeholder="Author"/><br>
-      <input [(ngModel)]="title" type="text" class="input1" placeholder="title"/><br>
-      <textarea [(ngModel)]="message" rows="7" cols="22" class="input1" placeholder="Message"></textarea><br>
-      <b><input type="button" value="Create" (click)="insert()"></b>
-   
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+  <input [(ngModel)]="author" type="text" class="input1" placeholder="Author"/><br>
+  <input [(ngModel)]="title" type="text" class="input1" placeholder="title"/><br>
+  <textarea [(ngModel)]="message" rows="7" cols="22" class="input1" placeholder="Message"></textarea><br>
+  <b><input type="button" value="Create" (click)="insert()"></b>
+   <div class="container">
+  <h2>List Forum</h2>
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>postid</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Message</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let i of data;let ind=index'>
+        <td>{{ind}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.message}}</td>
+        <td><input type="button" value="delete"></td>
+        <td><input type="button" value="modify"></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
