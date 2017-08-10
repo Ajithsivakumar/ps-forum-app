@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Http } from '@angular/http';
+
 @Component({
   selector: 'app-loginform',
   templateUrl: './loginform.component.html',
@@ -7,19 +9,20 @@ import {Router} from '@angular/router';
 })
 export class LoginformComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private http:Http) { }
 
   ngOnInit() {
   }
-loginuser(e)
+loginuser=function()
 {
-  e.preventDefault();
-  console.log(e);
-  var name=e.target.elements[0].value;
-  var pass=e.target.elements[1].value;
-  if(name=="admin"&&pass=="admin")
-    {
-      this.router.navigate(['dashboard']);
-    }
+  const body={name:this.user,pass:this.pass}
+  this.http
+  .post('http://localhost:3000/send',body)
+  .subscribe(data => {
+          this.testResponse = data;
+          console.log("I CANT SEE DATA HERE: ", this.testResponse);
+          if(this.testResponse._body!="[]") this.router.navigate(['dashboard']);
+        })
+  
 }
 }

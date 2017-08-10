@@ -1,10 +1,8 @@
 <div class="login-page">
   <div class="form">
-    <form class="login-form" (submit)="loginuser($event)">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <b><input type="submit" value="Login"></b>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
+ <input [(ngModel)]="user" type="text" placeholder="Name" /><br>
+ <input [(ngModel)]="pass" type="password" placeholder="MAC Address"><br>
+ <input type="button" (click)="loginuser()" value="Log In">
+ <p class="message">Not registered? <a href="#">Create an account</a></p>
   </div>
 </div>
