@@ -1,7 +1,7 @@
 
-    <form class="form" (submit)="createpost($event)">
-      <input type="text" class="input1" placeholder="Author"/><br>
-      <input type="text" class="input1" placeholder="title"/><br>
-      <textarea rows="7" cols="22" class="input1" placeholder="Message"></textarea><br>
-      <b><input type="submit" value="Create"></b>
-    </form>
+   
+      <input [(ngModel)]="author" type="text" class="input1" placeholder="Author"/><br>
+      <input [(ngModel)]="title" type="text" class="input1" placeholder="title"/><br>
+      <textarea [(ngModel)]="message" rows="7" cols="22" class="input1" placeholder="Message"></textarea><br>
+      <b><input type="button" value="Create" (click)="insert()"></b>
+   

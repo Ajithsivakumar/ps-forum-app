@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Http } from '@angular/http';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,26 +8,19 @@ import {Router} from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private http:Http) { }
 
   ngOnInit() {
   }
-createpost(e)
-{
-  e.preventDefault();
-  console.log(e);
-  var author=e.target.elements[0].value;
-  var title=e.target.elements[1].value;
-  var message=e.target.elements[2].value;
-  console.log(author,title,message);
- if(author!=""&&title!=""&&message!="")
-  {
-    this.router.navigate(['list']);
-  }
- else
-  {
-    return false;
-  } 
-  
+insert=function(){
+  const body = {author:this.author,title:this.title,message:this.message};
+  this.http
+  .post('http://localhost:3000/insert',body)
+  .subscribe(data => {
+          this.testResponse = data;
+          console.log("I : ", this.testResponse);
+          if(this.testResponse) this.router.navigate(['list']);
+        })
 }
 }
+
