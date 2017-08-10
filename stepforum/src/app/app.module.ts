@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {RouterModule,Routes} from '@angular/router';
+import { ListComponent } from './list/list.component';
 const appRoutes:Routes=[
   {
     path:'',
@@ -23,7 +24,8 @@ const appRoutes:Routes=[
     HeaderComponent,
     FooterComponent,
     LoginformComponent,
-    DashboardComponent
+    DashboardComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
